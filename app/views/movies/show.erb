@@ -1,0 +1,26 @@
+<h1><%= @movie.title %></h1>
+<img height="300" width="200"src="<%= @movie.poster %>">
+<p><%= @movie.rate%></p>
+<p><%= @movie.genre%></p>
+<p><%= @movie.director%></p>
+<p>사용자 점수 평점 평균 : <%= @avg.round(1) %></p>
+
+<form action="/movies/<%= @movie.id %>/review">
+    평점 <input type="radio" name="score" value="1">1
+    <input type="radio" name="score" value="2">2
+    <input type="radio" name="score" value="3">3
+    <input type="radio" name="score" value="4">4
+    <input type="radio" name="score" value="5">5<br>
+    리뷰 <input type="text" name="content">
+    <input type="submit"> 
+</form>
+
+
+평균 평점 : <%= @avg %>
+
+<!--movies에 속한 모든 리뷰를 보여준다.-->
+<% @movie.reviews.each do |m| %>
+    리뷰 : <%= m.content %><br>
+    평점 : <%= m.score %><br>
+<% end %>
+

@@ -1,0 +1,19 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">왓챠!</h1>
+    <p class="lead">영화평점서비스 :)</p>
+  </div>
+</div>
+
+<% @movies.each do |movie| %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= movie.poster %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.genre %></p>
+        <p class="card-text"><%= movie.rate %></p>
+        <p class="card-text"><%= movie.director %></p>
+        <a href="/movies/show/<%= movie.id %>" class="btn btn-primary">평가하기</a>
+      </div>
+    </div>
+<% end %>
